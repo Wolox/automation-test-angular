@@ -6,6 +6,7 @@ import { UnauthGuard } from './guards/unauth.guards';
 import { HomeComponent } from './screens/home/home.component';
 import { CouponsComponent } from './screens/coupons/coupons.component';
 import { ProfileComponent } from './screens/profile/profile.component';
+import { OrdersComponent } from './screens/orders/orders.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -15,6 +15,10 @@ export const MENU_ITEMS = [
     title: 'Cupones'
   },
   {
+    url: '/orders',
+    title: 'Mis pedidos'
+  },
+  {
     url: '/profile',
     title: 'Información personal'
   }

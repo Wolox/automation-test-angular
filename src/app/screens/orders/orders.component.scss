@@ -1,0 +1,19 @@
+@import '~src/scss/variables';
+
+.home {
+  display: flex;
+  justify-content: center;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: $nav-bar-height;
+    padding-top: 50px;
+
+    .offers-table {
+      &-block-button {
+        padding: 5px 20px;
+      }
+    }
+  }
+}

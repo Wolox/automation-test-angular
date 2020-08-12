@@ -20,6 +20,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { OfferModalComponent } from './components/offer-modal/offer-modal.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { OrdersComponent } from './screens/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     FileUploadComponent,
     OfferModalComponent,
     SpinnerComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
