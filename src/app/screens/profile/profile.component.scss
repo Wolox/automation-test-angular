@@ -1,0 +1,45 @@
+@import '~src/scss/variables';
+
+.profile {
+  display: flex;
+  justify-content: center;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: $nav-bar-height;
+    padding-top: 50px;
+
+    .profile-form {
+      align-items: center;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 50px;
+      min-width: 1200px;
+
+      &-fields {
+        display: grid;
+        grid-gap: 20px 40px;
+        grid-template-columns: auto auto;
+        margin-bottom: 40px;
+        width: 100%;
+      }
+
+      &-buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+
+        .profile-button {
+          justify-self: center;
+          width: 220px;
+        }
+      }
+
+      #image {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

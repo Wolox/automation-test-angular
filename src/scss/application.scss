@@ -1,0 +1,83 @@
+@import '~wolox-equalizer/equalizer';
+@import 'buttons';
+@import 'colors';
+@import 'variables';
+
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+html,
+body {
+  background-color: $background-color;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.app-table {
+  thead {
+    tr {
+      background-color: $blue;
+      border-bottom: 5px solid $background-color;
+      color: $white;
+    }
+
+    th {
+      border-right: 1px solid $background-color;
+      padding: 10px 40px;
+    }
+
+    .sort-col {
+      cursor: pointer;
+
+      &-title {
+        color: inherit;
+        font-size: inherit;
+      }
+
+      &-title:after {
+        color: darken($blue, 30%);
+        content: "\25BC";
+        font-size: .5em;
+        margin: 5px;
+        vertical-align: middle;
+      }
+
+      &-title.active-asc:after {
+        content: "\25BC";
+      }
+
+      &-title.active-desc:after {
+        content: "\25B2";
+      }
+
+      &-title.active:after {
+        color: $white;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      background-color: $white;
+      border-bottom: 5px solid $background-color;
+    }
+
+    td {
+      padding: 10px 40px;
+    }
+  }
+}
+
+.app-title {
+  color: $blue;
+  font-size: 30px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}

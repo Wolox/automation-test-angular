@@ -1,0 +1,51 @@
+@import '~src/scss/colors';
+@import '~src/scss/variables';
+
+$border-radius: 20px;
+
+:host {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+
+  .login-box {
+    align-items: center;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-direction: column;
+
+    &-head {
+      background-color: $blue;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      padding: 15px;
+      width: 100%;
+    }
+
+    &-title {
+      color: $white;
+      font-size: $title-font-size;
+      font-weight: bold;
+      line-height: $title-font-size;
+      text-align: center;
+      width: 100%;
+    }
+
+    &-form {
+      min-width: 400px;
+      padding: 30px;
+      width: 100%;
+
+      &-input {
+        margin-bottom: 10px;
+      }
+
+      &-submit {
+        margin-top: 20px;
+      }
+    }
+  }
+}

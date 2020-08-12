@@ -1,0 +1,53 @@
+@import '~src/scss/colors';
+@import '~src/scss/variables';
+
+.nav-bar {
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0 5px 5px rgba($gray, 0.75);
+  border-bottom: 5px solid $blue;
+  display: flex;
+  height: $nav-bar-height;
+  justify-content: space-around;
+  padding: 0 25px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  &-menu,
+  &-account {
+    align-items: center;
+    display: flex;
+    font-size: 6px;
+    overflow: hidden;
+
+    &-txt {
+      font-size: 1em;
+      letter-spacing: .5em;
+      margin-right: -.5px;
+    }
+  }
+
+  &-item>.username {
+    padding: 20px 15px;
+  }
+
+  &-item>&-link {
+    padding: 20px 15px;
+    text-align: center;
+
+    &:hover {
+      background-color: $gray-light;
+      color: $blue;
+    }
+
+    &.active {
+      color: $blue;
+    }
+  }
+
+  .coupon-button {
+    margin: 0 10px;
+  }
+}

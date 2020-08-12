@@ -1,0 +1,21 @@
+<nav class="nav-bar">
+  <ul class="nav-bar-menu">
+    <li class="nav-bar-item" *ngFor="let item of menuItems">
+      <a [routerLink]="[item.url]" [routerLinkActive]="'active'" class="nav-bar-link">{{ item.title }}</a>
+    </li>
+  </ul>
+  <ul class="nav-bar-account">
+    <li class="nav-bar-item">
+      <ng-container *ngIf="showFreeCouponButton(); else username">
+        <button id="welcome-coupon" class="button danger coupon-button" (click)="openCouponModal()">Obtener cupón de
+          bienvenida</button>
+      </ng-container>
+      <ng-template #username>
+        <span class="username"><i>Usuario: {{ userLogged }}</i></span>
+      </ng-template>
+    </li>
+    <li class="nav-bar-item">
+      <a class="nav-bar-link" (click)="onLogout()">Cerrar Sesión</a>
+    </li>
+  </ul>
+</nav>

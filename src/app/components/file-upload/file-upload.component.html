@@ -1,0 +1,10 @@
+<label class="label" *ngIf="label" [ngClass]="{'hasError': (showError && errorMessage)}">{{ label }}</label>
+<div class="file-upload-container" [ngClass]="{'hasError': (showError && errorMessage)}">
+  <img #previewImg class="file-preview" src="assets/image.png" alt="Image">
+  <div class="file-upload">
+    <input #inputFile [id]="id" type="file">
+    <span class="error-message" [id]="idError" *ngIf="showError && errorMessage">
+      {{ errorMessage }}
+    </span>
+  </div>
+</div>

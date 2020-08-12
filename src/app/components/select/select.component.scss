@@ -1,0 +1,43 @@
+@import "~src/scss/colors";
+
+$error-font-size: 10px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-container {
+  padding-bottom: ($error-font-size + 5px);
+  position: relative;
+
+  .select {
+    border: 1px solid $green;
+    border-radius: 20px;
+    height: 42px;
+    line-height: 20px;
+    padding: 10px 15px;
+    width: 100%;
+
+    &.hasError {
+      border-color: $red;
+    }
+  }
+
+  .error-message {
+    bottom: 0;
+    color: $red;
+    font-size: $error-font-size;
+    left: 0;
+    position: absolute;
+  }
+}
+
+.select-label {
+  color: $green;
+  margin-bottom: 5px;
+
+  &.hasError {
+    color: $red;
+  }
+}

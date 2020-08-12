@@ -1,0 +1,4 @@
+<app-input [id]="id" [label]="label" [formControl]="formControl?.control" [errorMessage]="errorMessage"
+  [showErrorsListener$]="submit$" [disabled]="true"></app-input>
+<my-date-picker class="date-button" [options]="myDatePickerOptions" (dateChanged)="onDatePickerChange($event)">
+</my-date-picker>

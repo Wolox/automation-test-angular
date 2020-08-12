@@ -1,0 +1,56 @@
+@import 'colors';
+
+.button {
+  border: 1px solid $gray;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 13px 20px;
+}
+
+.button.block {
+  width: 100%;
+}
+
+.button.success {
+  background-color: $green;
+  border-color: $green;
+  color: $white;
+
+  &:hover {
+    background-color: darken($green, 5%);
+    border-color: darken($green, 5%);
+  }
+
+  &:disabled {
+    background-color: darken($gray, 5%);
+    border-color: darken($gray, 5%);
+    color: $gray-light;
+  }
+
+  &:active {
+    background-color: darken($green, 10%);
+    border-color: darken($green, 10%);
+  }
+}
+
+.button.danger {
+  background-color: darken($red, 5%);
+  border-color: darken($red, 5%);
+  color: $white;
+
+  &:hover {
+    background-color: darken($red, 10%);
+    border-color: darken($red, 10%);
+  }
+
+  &:disabled {
+    background-color: darken($gray, 5%);
+    border-color: darken($gray, 5%);
+    color: $gray-light;
+  }
+
+  &:active {
+    background-color: darken($red, 15%);
+    border-color: darken($red, 15%);
+  }
+}

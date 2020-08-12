@@ -1,0 +1,57 @@
+@import '~src/scss/modals';
+@import '~src/scss/colors';
+
+.modal-content {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "offer-main-info offer-info"
+    "coupon-input coupon-input"
+    "confirm-button confirm-button";
+  grid-column-gap: 30px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.offer-main-info,
+.offer-info {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-description {
+  color: $black;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.offer-price {
+  color: $red;
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 40px;
+}
+
+.offer-coupon {
+  grid-area: coupon-input;
+  margin-bottom: 20px;
+}
+
+#order-confirm {
+  grid-area: confirm-button;
+}
+
+.offer-info {
+  .info {
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+  }
+}
+
+.material-icons {
+  color: $gray;
+  margin-right: 10px;
+}

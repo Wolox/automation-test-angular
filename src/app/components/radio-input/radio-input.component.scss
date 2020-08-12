@@ -1,0 +1,40 @@
+@import "~src/scss/colors";
+
+$error-font-size: 10px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-container {
+  padding-bottom: ($error-font-size + 5px);
+  position: relative;
+
+
+  .radio-input {
+    margin-right: 30px;
+
+    .radio {
+      margin-right: 5px;
+    }
+  }
+
+  .error-message {
+    bottom: 0;
+    color: $red;
+    font-size: $error-font-size;
+    left: 0;
+    position: absolute;
+  }
+}
+
+label,
+.radio-label {
+  color: $green;
+  margin-bottom: 5px;
+
+  &.hasError {
+    color: $red;
+  }
+}

@@ -1,0 +1,18 @@
+<div id="offer-modal" class="modal" [ngClass]="{'opened': opened}">
+  <div class="modal-content">
+    <span class="close" (click)="close()">&times;</span>
+    <div class="offer-main-info">
+      <span class="offer-description">{{ offer.description }}</span>
+      <span class="offer-price">{{ offer.price | currency }}</span>
+    </div>
+    <div class="offer-info">
+      <span class="info"><i class="material-icons">date_range</i>{{ offer.date | date: 'dd/MM/yyyy' }}</span>
+      <span class="info"><i class="material-icons">local_shipping</i>{{ offer.shipping_cost | currency }}</span>
+      <span class="info"><i class="material-icons">business</i>{{ offer.local }}</span>
+      <span class="info"><i class="material-icons">location_on</i>{{ offer.address }}</span>
+    </div>
+    <app-input [id]="'coupon'" class="offer-coupon" label="Cupón de descuento" [formControl]="couponControl">
+    </app-input>
+    <button type="button" id="order-confirm" class="button success" (click)="confirmOder()">Confirmar pedido</button>
+  </div>
+</div>

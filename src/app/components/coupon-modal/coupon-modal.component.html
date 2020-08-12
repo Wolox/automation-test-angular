@@ -1,0 +1,7 @@
+<div id="coupon-modal" class="modal" [ngClass]="{'opened': opened}">
+  <div class="modal-content">
+    <span class="close" (click)="close()">&times;</span>
+    <span id="coupon-code" class="coupon-code">{{ couponCode }}</span>
+    <p>Copia este código y úsalo para disfrutar de un descuento por única vez</p>
+  </div>
+</div>

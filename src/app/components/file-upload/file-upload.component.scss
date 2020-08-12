@@ -1,0 +1,41 @@
+@import "~src/scss/colors";
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: $green;
+  margin-bottom: 5px;
+
+  &.hasError {
+    color: $red;
+  }
+}
+
+.file-upload-container {
+  border: 1px dashed $green;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  .file-preview {
+    height: 150px;
+  }
+
+  .file-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+
+    .error-message {
+      color: $red;
+    }
+  }
+
+  &.hasError {
+    border-color: $red;
+  }
+}

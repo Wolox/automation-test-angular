@@ -1,0 +1,48 @@
+@import '~src/scss/colors';
+
+.modal {
+  background-color: $black;
+  background-color: rgba($black, 0.4);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  opacity: 0;
+
+  .close {
+    color: $gray;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+.modal.opened {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: all .2s linear;
+  opacity: 1;
+}
+
+.modal-content {
+  align-items: center;
+  background-color: $white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  position: relative;
+}

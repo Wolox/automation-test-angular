@@ -1,0 +1,8 @@
+<label class="input-label" *ngIf="label" [ngClass]="{'hasError': (showError && errorMessage)}">{{ label }}</label>
+<div class="input-container">
+  <input class="input" [id]="id" (blur)="onTouch()" (input)="onChange($event.target.value)" [type]="type"
+    [value]="value" [formControl]="formControl?.control" [ngClass]="{'hasError': (showError && errorMessage)}">
+  <span class="error-message" [id]="idError" *ngIf="showError && errorMessage">
+    {{ errorMessage }}
+  </span>
+</div>

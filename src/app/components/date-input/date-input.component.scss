@@ -1,0 +1,32 @@
+@import "~src/scss/colors";
+
+$border-radius: 20px;
+
+:host {
+  position: relative;
+
+  .date-button {
+    position: absolute;
+    right: 1px;
+    top: 20px;
+  }
+}
+
+::ng-deep .date-button .mydp {
+  border: none;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+
+  .selectiongroup {
+    height: 40px;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    .btnpicker {
+      border-left: 1px solid $gray;
+      border-radius: 0 $border-radius $border-radius 0;
+      padding-left: 15px;
+      padding-right: 30px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<app-offer-modal #offerModal></app-offer-modal>
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>
+<app-nav-bar></app-nav-bar>
+<div class="home">
+  <div class="home-content">
+    <h1 class="app-title">Ofertas</h1>
+    <table class="app-table offers-table">
+      <thead>
+        <tr>
+          <th class="sort-col" (click)="updateOffers(SORT_BY.DATE)">
+            <span id="date-order" class="sort-col-title" [ngClass]="resolveSortClass(SORT_BY.DATE)">
+              Fecha
+            </span>
+          </th>
+          <th>Descripción</th>
+          <th class="sort-col" (click)="updateOffers(SORT_BY.PRICE)">
+            <span id="price-order" class="sort-col-title" [ngClass]="resolveSortClass(SORT_BY.PRICE)">
+              Precio
+            </span>
+          </th>
+          <th>Costo de Envío</th>
+          <th class="sort-col" (click)="updateOffers(SORT_BY.LOCAL)">
+            <span id="comerce-order" class="sort-col-title" [ngClass]="resolveSortClass(SORT_BY.LOCAL)">
+              Comercio
+            </span>
+          </th>
+          <th>Dirección</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="offers.length">
+        <tr id="offer-{{index}}" *ngFor="let offer of offers; let index = index">
+          <td>{{ offer.date | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ offer.description }}</td>
+          <td class="align-right">{{ offer.price | currency }}</td>
+          <td class="align-right">{{ offer.shipping_cost | currency }}</td>
+          <td>{{ offer.local }}</td>
+          <td>{{ offer.address }}</td>
+          <td class="align-center">
+            <!-- TODO: Check ids of the order buttons -->
+            <button class="button success offers-table-block-button" (click)="openOfferModal(offer)">Pedir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+@import '~src/scss/variables';
+
+.coupons {
+  display: flex;
+  justify-content: center;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: $nav-bar-height;
+    min-width: 1000px;
+    padding-top: 50px;
+
+    .coupons-table {
+      &-block-button {
+        padding: 5px 20px;
+      }
+    }
+  }
+}
