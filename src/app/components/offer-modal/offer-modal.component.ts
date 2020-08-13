@@ -3,6 +3,9 @@ import { Offer } from 'src/app/mocks/offers.mock';
 import { FormControl } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders.service';
+import { CouponsService } from 'src/app/services/coupons.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { validCouponValidator } from 'src/app/validators/validCouponValidator';
 
 @Component({
   selector: 'app-offer-modal',
@@ -17,10 +20,14 @@ export class OfferModalComponent {
   confirmOrderEvent = this.confirmOrder.asObservable();
 
   constructor(
-    private ordersService: OrdersService
+    private ordersService: OrdersService,
+    private couponsService: CouponsService,
+    private authService: AuthenticationService
   ) {
+    const currentUser = this.authService.getUser();
+    const coupons = this.couponsService.getUserCoupons(currentUser).map(c => c.code);
+    this.couponControl = new FormControl("", validCouponValidator(coupons));
     this.resetOffer();
-    this.couponControl = new FormControl();
   }
 
   open(offer: Offer) {
@@ -34,9 +41,11 @@ export class OfferModalComponent {
   }
 
   confirmOder() {
-    this.ordersService.addNewOrder(this.offer);
-    this.opened = false;
-    this.confirmOrder.next(true);
+    if (!this.couponControl.errors){
+      this.ordersService.addNewOrder(this.offer);
+      this.opened = false;
+      this.confirmOrder.next(true);
+    }
   }
 
   resetOffer() {
@@ -49,5 +58,6 @@ export class OfferModalComponent {
       local: '',
       address: ''
     };
+    this.couponControl.reset();
   }
 }

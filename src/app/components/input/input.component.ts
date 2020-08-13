@@ -83,7 +83,9 @@ export class InputComponent implements OnInit, ControlValueAccessor, AfterViewIn
     });
     if (this.formControl.control.validator) {
       const validators = this.formControl.control.validator(this.formControl.control);
-      this.isRequired = !!validators.required;
+      if (validators) {
+        this.isRequired = !!validators.required;
+      }
     }
     this.cdr.detectChanges();
     this.resolveIDs();

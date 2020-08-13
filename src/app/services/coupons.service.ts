@@ -14,7 +14,7 @@ export class CouponsService {
     freeCouponList.push({
       username: user,
       code: coupon,
-      date: '2019-12-31',
+      date: '2022-12-31',
       description: 'Cupón de Bienvenida'
     });
     this.localStorage.setValue(freeCouponKey, freeCouponList);

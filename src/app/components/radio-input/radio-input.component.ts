@@ -71,7 +71,9 @@ export class RadioInputComponent implements OnInit, ControlValueAccessor, AfterV
     });
     if (this.formControl.control.validator) {
       const validators = this.formControl.control.validator(this.formControl.control);
-      this.isRequired = !!validators.required;
+      if (validators) {
+        this.isRequired = !!validators.required;
+      }
     }
     this.cdr.detectChanges();
   }

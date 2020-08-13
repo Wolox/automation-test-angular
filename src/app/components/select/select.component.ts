@@ -78,7 +78,9 @@ export class SelectComponent implements OnInit, ControlValueAccessor, AfterViewI
     });
     if (this.formControl.control.validator) {
       const validators = this.formControl.control.validator(this.formControl.control);
-      this.isRequired = !!validators.required;
+      if (validators) {
+        this.isRequired = !!validators.required;
+      }
     }
     this.cdr.detectChanges();
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProfileService } from 'src/app/services/profile.service';
 
 export const PROFILE_ERRORS = {
   name: {
@@ -53,30 +54,35 @@ export class ProfileComponent implements OnInit {
     }
   ];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit() {
     this.initForm();
   }
 
   initForm(): void {
+    const userData = this.profileService.getUserData();
     this.form = this.formBuilder.group({
-      name: ['', Validators.compose([Validators.required, Validators.pattern('[A-Za-z ]*')])],
-      lastname: [''],
-      birthday: ['',
+      name: [userData.name, Validators.compose([Validators.required, Validators.pattern('[A-Za-z ]*')])],
+      lastname: [userData.lastname],
+      birthday: [userData.birthday,
         Validators.compose([
           Validators.required,
           Validators.pattern('[0-3][0-9]/[0-1][0-9]/[1-9][0-9][0-9][0-9]')
         ])
       ],
-      country: ['', Validators.compose([Validators.required])],
-      image: ['', Validators.compose([Validators.required])],
-      gender: ['', Validators.compose([Validators.required])]
+      country: [userData.country, Validators.compose([Validators.required])],
+      image: [userData.image, Validators.compose([Validators.required])],
+      gender: [userData.gender, Validators.compose([Validators.required])]
     });
   }
 
   onSubmit() {
-    console.warn(this.form.value);
+    this.profileService.updateUserData(this.form.value);
+    this.form.reset(this.form.value, false);
   }
 
   onCancel() {

@@ -11,7 +11,7 @@
       <span class="info"><i class="material-icons">business</i>{{ offer.local }}</span>
       <span class="info"><i class="material-icons">location_on</i>{{ offer.address }}</span>
     </div>
-    <app-input [id]="'coupon'" class="offer-coupon" label="Cupón de descuento" [formControl]="couponControl">
+    <app-input [id]="'coupon'" class="offer-coupon" label="Cupón de descuento" errorMessage="Cupón inválido" [formControl]="couponControl">
     </app-input>
     <button type="button" id="order-confirm" class="button success" (click)="confirmOder()">Confirmar pedido</button>
   </div>
