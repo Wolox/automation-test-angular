@@ -6,4 +6,5 @@ export interface Order {
   shipping_cost: number;
   local: string;
   address: string;
+  usedCoupon: boolean;
 }

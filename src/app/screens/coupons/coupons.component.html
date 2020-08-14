@@ -8,6 +8,7 @@
           <th>Código</th>
           <th>Fecha de Caducidad</th>
           <th>Descripción</th>
+          <th>Usos</th>
         </tr>
       </thead>
       <tbody *ngIf="coupons.length > 0">
@@ -15,11 +16,12 @@
           <td>{{ coupon.code }}</td>
           <td>{{ coupon.date | date: 'dd/MM/yyyy' }}</td>
           <td>{{ coupon.description }}</td>
+          <td>{{ coupon.uses }}</td>
         </tr>
       </tbody>
       <tbody *ngIf="coupons.length == 0">
         <tr>
-          <td colspan="3">No se encontraron registros</td>
+          <td colspan="4">No se encontraron registros</td>
         </tr>
       </tbody>
     </table>

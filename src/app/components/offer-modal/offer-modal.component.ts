@@ -42,7 +42,14 @@ export class OfferModalComponent {
 
   confirmOder() {
     if (!this.couponControl.errors){
-      this.ordersService.addNewOrder(this.offer);
+      const newOrder = {
+        ...this.offer,
+        usedCoupon: this.couponControl.value!!
+      };
+      if (newOrder.usedCoupon){
+        this.couponsService.useCoupon(this.couponControl.value);
+      }
+      this.ordersService.addNewOrder(newOrder);
       this.opened = false;
       this.confirmOrder.next(true);
     }

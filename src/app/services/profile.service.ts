@@ -9,6 +9,7 @@ export class ProfileService {
     name: 'Jorge',
     lastname: 'perez',
     birthday: '12/04/1992',
+    image: null,
     country: 1,
     gender: 'M'
   }

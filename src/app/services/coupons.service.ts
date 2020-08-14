@@ -15,7 +15,8 @@ export class CouponsService {
       username: user,
       code: coupon,
       date: '2022-12-31',
-      description: 'Cupón de Bienvenida'
+      description: 'Cupón de Bienvenida',
+      uses: 2
     });
     this.localStorage.setValue(freeCouponKey, freeCouponList);
   }
@@ -37,5 +38,29 @@ export class CouponsService {
 
   userHasCoupons(username: string): boolean {
     return this.getUserCoupons(username).length !== 0;
+  }
+
+  useCoupon(couponCode: string) {
+    const freeCouponList = this.getFreeCouponsList() || [];
+    const freeCouponKey = this.localStorage.FREE_COUPON;
+    const newCouponsList = [];
+    freeCouponList.forEach(element => {
+      if (element.code === couponCode) {
+        if (element.uses !== 1) {
+          const newElement = {
+            ...element,
+            uses: element.uses - 1
+          };
+          newCouponsList.push(newElement);
+        }
+      } else {
+        newCouponsList.push(element);
+      }
+    });
+    this.localStorage.setValue(freeCouponKey, newCouponsList);
+  }
+
+  private deleteCoupon() {
+    this.localStorage.removeValue(this.localStorage.FREE_COUPON);
   }
 }

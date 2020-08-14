@@ -25,6 +25,7 @@
             </span>
           </th>
           <th>Dirección</th>
+          <th>Uso Cupón?</th>
         </tr>
       </thead>
       <tbody *ngIf="orders.length">
@@ -35,6 +36,7 @@
           <td class="align-right">{{ order.shipping_cost | currency }}</td>
           <td>{{ order.local }}</td>
           <td>{{ order.address }}</td>
+          <td>{{order.usedCoupon ? "Si" : "No"}}</td>
         </tr>
       </tbody>
     </table>

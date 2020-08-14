@@ -27,7 +27,9 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
     const userLogged = this.authService.getUser();
-    this.orders = this.ordersService.getOrders(userLogged).value.orders;
+    this.ordersService.getOrders(userLogged).subscribe(translatedValue => { 
+      this.orders = translatedValue.orders;
+    });
   }
 
   updateOrders(sortBy?: string): void {

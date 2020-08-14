@@ -82,7 +82,7 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     this.profileService.updateUserData(this.form.value);
-    this.form.reset(this.form.value, false);
+    this.form.reset(this.form.value);
   }
 
   onCancel() {
