@@ -2,11 +2,16 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from 'src/app/services/profile.service';
 import { UserConfirmationModalComponent } from 'src/app/components/user-confirmation-modal/user-confirmation-modal.component';
+import { UserData } from '../../mocks/profile.mock'
 
 export const PROFILE_ERRORS = {
   name: {
     pattern: 'El nombre debe ser solo letras',
     required: 'El nombre es requerido',
+  },
+  lastname: {
+    pattern: 'El apellido debe ser solo letras',
+    required: 'El apellido es requerido',
   },
   birthday: {
     required: 'La fecha de nacimiento es requerida',
@@ -55,6 +60,7 @@ export class ProfileComponent implements OnInit {
       name: 'Femenino'
     }
   ];
+  userData: UserData;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,19 +72,19 @@ export class ProfileComponent implements OnInit {
   }
 
   initForm(): void {
-    const userData = this.profileService.getUserData();
+    this.userData = this.profileService.getUserData();
     this.form = this.formBuilder.group({
-      name: [userData.name, Validators.compose([Validators.required, Validators.pattern('[A-Za-z ]*')])],
-      lastname: [userData.lastname],
-      birthday: [userData.birthday,
+      name: [this.userData.name, Validators.compose([Validators.required, Validators.pattern('[A-Za-z ]*')])],
+      lastname: [this.userData.lastname, Validators.compose([Validators.required, Validators.pattern('[A-Za-z ]*')])],
+      birthday: [this.userData.birthday,
         Validators.compose([
           Validators.required,
           Validators.pattern('[0-3][0-9]/[0-1][0-9]/[1-9][0-9][0-9][0-9]')
         ])
       ],
-      country: [userData.country, Validators.compose([Validators.required])],
-      image: [userData.image, Validators.compose([Validators.required])],
-      gender: [userData.gender, Validators.compose([Validators.required])]
+      country: [this.userData.country, Validators.compose([Validators.required])],
+      image: [this.userData.image, Validators.compose([Validators.required])],
+      gender: [this.userData.gender, Validators.compose([Validators.required])]
     });
   }
 
@@ -91,7 +97,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onCancel() {
-    this.form.reset();
+    this.form.reset(this.userData);
   }
 
   getErrorMessage(control: string): string {

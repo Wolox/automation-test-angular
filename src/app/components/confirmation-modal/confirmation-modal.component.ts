@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationModalComponent {
   public opened = false;
-
   constructor() { }
 
   open() {

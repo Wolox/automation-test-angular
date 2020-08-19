@@ -4,6 +4,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { CouponsService } from 'src/app/services/coupons.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 export const MENU_ITEMS = [
   {
@@ -38,12 +39,14 @@ export class NavBarComponent {
     private router: Router,
     private modalService: ModalService,
     private couponsService: CouponsService,
-    private ordersService: OrdersService
+    private ordersService: OrdersService,
+    private profileService: ProfileService
   ) {
     this.userLogged = this.authService.getUser();
   }
 
   onLogout() {
+    this.profileService.resetUserData();
     this.ordersService.clearOrders();
     this.authService.logout();
     this.router.navigateByUrl('/login');

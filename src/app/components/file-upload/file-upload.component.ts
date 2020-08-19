@@ -36,6 +36,7 @@ export class FileUploadComponent implements ControlValueAccessor, AfterViewInit,
     reader.readAsDataURL(file);
     reader.onload = (e: any) => {
       this.previewImg.nativeElement.src = e.target.result;
+      debugger;
     };
     this.onChange(file);
     this.file = file;

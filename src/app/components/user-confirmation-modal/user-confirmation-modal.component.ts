@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-confirmation-modal',
@@ -8,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class UserConfirmationModalComponent {
   public opened = false;
 
-  constructor() { }
+  constructor( private router: Router ) { }
 
   open() {
     this.opened = true;
   }
 
   close() {
+    this.router.navigateByUrl('/home')
     this.opened = false;
   }
 }
