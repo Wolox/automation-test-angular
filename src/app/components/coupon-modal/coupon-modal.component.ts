@@ -3,6 +3,7 @@ import { ModalService } from 'src/app/services/modal.service';
 import { generateRandomString } from 'src/app/utils/string-random-generator';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CouponsService } from 'src/app/services/coupons.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coupon-modal',
@@ -22,7 +23,8 @@ export class CouponModalComponent implements OnInit {
   constructor(
     private modalService: ModalService,
     private authService: AuthenticationService,
-    private couponsService: CouponsService
+    private couponsService: CouponsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class CouponModalComponent implements OnInit {
         this.couponCode = generateRandomString(15);
         const userlogger = this.authService.getUser();
         this.couponsService.registerFreeCoupon(this.couponCode, userlogger);
+        this.router.navigateByUrl('/coupons');
       }
       this.opened = value;
     });

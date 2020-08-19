@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from 'src/app/services/profile.service';
+import { UserConfirmationModalComponent } from 'src/app/components/user-confirmation-modal/user-confirmation-modal.component';
 
 export const PROFILE_ERRORS = {
   name: {
@@ -29,6 +30,7 @@ export const PROFILE_ERRORS = {
 })
 export class ProfileComponent implements OnInit {
   form: FormGroup;
+  @ViewChild('userConfirmationModal', { static: false }) private confirmationModal: UserConfirmationModalComponent;
   countries = [
     {
       id: 1,
@@ -81,8 +83,11 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    this.profileService.updateUserData(this.form.value);
-    this.form.reset(this.form.value);
+    if (this.form.valid) {
+      this.profileService.updateUserData(this.form.value);
+      this.form.reset(this.form.value);
+      this.confirmationModal.open();
+    }
   }
 
   onCancel() {

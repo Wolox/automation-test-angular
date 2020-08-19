@@ -46,5 +46,4 @@ export class OrdersComponent implements OnInit {
       'active-desc': (sortBy === this.sortedBy && this.sortedType === SORT_TYPE.DESC)
     };
   }
-
 }

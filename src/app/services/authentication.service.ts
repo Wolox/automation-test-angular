@@ -21,6 +21,6 @@ export class AuthenticationService {
   }
 
   logout() {
-    this.localStorageService.removeValue(this.localStorageService.SESSION_TOKEN);
+    this.localStorageService.clearStorage();
   }
 }

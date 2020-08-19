@@ -25,7 +25,7 @@ export class OfferModalComponent {
     private authService: AuthenticationService
   ) {
     const currentUser = this.authService.getUser();
-    const coupons = this.couponsService.getUserCoupons(currentUser).map(c => c.code);
+    const coupons = this.couponsService.getUserCoupons(currentUser).filter(c => c.uses > 0).map(c => c.code);
     this.couponControl = new FormControl("", validCouponValidator(coupons));
     this.resetOffer();
   }
@@ -52,6 +52,9 @@ export class OfferModalComponent {
       this.ordersService.addNewOrder(newOrder);
       this.opened = false;
       this.confirmOrder.next(true);
+      const currentUser = this.authService.getUser();
+      const coupons = this.couponsService.getUserCoupons(currentUser).filter(c => c.uses > 0).map(c => c.code);
+      this.couponControl = new FormControl("", validCouponValidator(coupons));
     }
   }
 

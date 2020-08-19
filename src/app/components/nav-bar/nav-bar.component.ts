@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { OrdersService } from 'src/app/services/orders.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { CouponsService } from 'src/app/services/coupons.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -37,12 +37,14 @@ export class NavBarComponent {
     private authService: AuthenticationService,
     private router: Router,
     private modalService: ModalService,
-    private couponsService: CouponsService
+    private couponsService: CouponsService,
+    private ordersService: OrdersService
   ) {
     this.userLogged = this.authService.getUser();
   }
 
   onLogout() {
+    this.ordersService.clearOrders();
     this.authService.logout();
     this.router.navigateByUrl('/login');
   }

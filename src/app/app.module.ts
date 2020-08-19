@@ -20,6 +20,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { OfferModalComponent } from './components/offer-modal/offer-modal.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { UserConfirmationModalComponent } from './components/user-confirmation-modal/user-confirmation-modal.component';
 import { OrdersComponent } from './screens/orders/orders.component';
 
 @NgModule({
@@ -40,6 +41,7 @@ import { OrdersComponent } from './screens/orders/orders.component';
     OfferModalComponent,
     SpinnerComponent,
     ConfirmationModalComponent,
+    UserConfirmationModalComponent,
     OrdersComponent
   ],
   imports: [

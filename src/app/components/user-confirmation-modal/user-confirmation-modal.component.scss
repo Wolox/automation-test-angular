@@ -1,0 +1,10 @@
+@import '~src/scss/modals';
+@import '~src/scss/colors';
+
+.confirmation-modal-info {
+  font-size: 20px;
+  line-height: 30px;
+  max-width: 500px;
+  text-align: center;
+  width: 100%;
+}

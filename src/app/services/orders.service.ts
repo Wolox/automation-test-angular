@@ -101,4 +101,8 @@ export class OrdersService {
       });
     }
   }
+
+  clearOrders() {
+    this.orders = [];
+  }
 }
