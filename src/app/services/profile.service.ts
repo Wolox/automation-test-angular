@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { UserData, USER_DATA } from '../mocks/profile.mock'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  private userData = {
-    name: 'Jorge',
-    lastname: 'perez',
-    birthday: '12/04/1992',
-    image: null,
-    country: 1,
-    gender: 'M'
-  }
+  userData: UserData;
 
-  constructor() { }
+  constructor() { 
+    this.userData = USER_DATA;
+  }
 
   getUserData() {
     return this.userData;
@@ -22,5 +18,9 @@ export class ProfileService {
 
   updateUserData(value) {
     this.userData = value;
+  }
+
+  resetUserData(){
+    this.userData = USER_DATA;
   }
 }

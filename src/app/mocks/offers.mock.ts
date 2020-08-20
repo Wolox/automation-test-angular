@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export interface Offer {
   readonly id: string;
   date: string;
@@ -8,10 +10,12 @@ export interface Offer {
   address: string;
 }
 
+const today: string = moment().format("YYYY-MM-DD");
+
 export const OFFERS: Offer[] = [
   {
     id: 'axKl',
-    date: '2019-08-15',
+    date: today,
     price: 20000,
     description: 'Aceite de Girasol',
     shipping_cost: 2000,
@@ -19,7 +23,7 @@ export const OFFERS: Offer[] = [
     address: 'Tr. 13 #12-34'
   }, {
     id: 'Sfdu',
-    date: '2019-11-31',
+    date: today,
     price: 3500,
     description: 'Pan tajado',
     shipping_cost: 500,
@@ -27,7 +31,7 @@ export const OFFERS: Offer[] = [
     address: 'Tr. 13 #12-34'
   }, {
     id: 'SDcv',
-    date: '2019-10-10',
+    date: today,
     price: 14000,
     description: 'Jamón Premium',
     shipping_cost: 1000,

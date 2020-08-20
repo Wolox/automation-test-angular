@@ -39,6 +39,11 @@
           <td>{{order.usedCoupon ? "Si" : "No"}}</td>
         </tr>
       </tbody>
+      <tbody *ngIf="orders.length == 0">
+        <tr>
+          <td colspan="7">No se encontraron registros</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

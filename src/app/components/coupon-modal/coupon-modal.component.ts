@@ -33,13 +33,13 @@ export class CouponModalComponent implements OnInit {
         this.couponCode = generateRandomString(15);
         const userlogger = this.authService.getUser();
         this.couponsService.registerFreeCoupon(this.couponCode, userlogger);
-        this.router.navigateByUrl('/coupons');
       }
       this.opened = value;
     });
   }
 
   close() {
+    this.router.navigateByUrl('/coupons');
     this.modalService.close();
   }
 }

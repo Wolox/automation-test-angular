@@ -8,7 +8,7 @@
       </app-file-upload>
       <div class="profile-form-fields">
         <app-input [id]="'name'" label="Nombre" formControlName="name" [errorMessage]="getErrorMessage('name')"></app-input>
-        <app-input [id]="'lastName'" label="Apellido" formControlName="lastname"></app-input>
+        <app-input [id]="'lastName'" label="Apellido" formControlName="lastname" [errorMessage]="getErrorMessage('lastname')"></app-input>
         <app-date-input [id]="'bornDate'" label="Fecha de Nacimiento" formControlName="birthday"
           [errorMessage]="getErrorMessage('birthday')"></app-date-input>
         <app-select [id]="'country'" label="País" formControlName="country" [errorMessage]="getErrorMessage('country')"

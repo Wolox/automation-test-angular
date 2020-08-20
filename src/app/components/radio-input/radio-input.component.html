@@ -1,7 +1,7 @@
 <label class="label" *ngIf="label" [ngClass]="{'hasError': (showError && errorMessage)}">{{ label }}</label>
 <div class="radio-container">
   <label class="radio-input" *ngFor="let option of options">
-    <input [id]="option.id" type="radio" class="radio" (change)="onChange($event.target.value)" [value]="option.id"
+    <input [id]="option.id" type="radio" class="radio" (input)="onChange($event.target.value)" [value]="option.id"
       [formControl]="formControl?.control" [name]="radioName">
     <span class="radio-label" [ngClass]="{'hasError': (showError && errorMessage)}">{{ option.name }}</span>
   </label>
